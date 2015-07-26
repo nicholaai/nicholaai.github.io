@@ -1,0 +1,46 @@
+* {
+  font-size: 24px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+p {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+a p {
+  color: #FFF;
+}
+#content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#content div {
+  height: 100%;
+}
+#main {
+  background-color: #95a5a6;
+  height: 100%;
+  color: #FFF;
+  position: relative;
+}
+#story {
+  background-color: #c0392b;
+}
+#portfolio {
+  background-color: #3498db;
+}
+#blog {
+  background-color: #1abc9c;
+}
+#skills {
+  background-color: #34495e;
+}
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
