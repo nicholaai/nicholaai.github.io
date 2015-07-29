@@ -21,12 +21,12 @@ a p {
   bottom: 0;
   width: 100%;
 }
-#content {
+#panels {
   padding-left: 0px;
   padding-right: 0px;
 
 }
-#content div {
+#panels div {
   height: 100%;
 }
 #main {
