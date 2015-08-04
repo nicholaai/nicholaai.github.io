@@ -1,33 +1,34 @@
-* {
-  font-size: 24px;
+body, html {
+  height: 100%;
 }
 ul {
   padding: 0;
   margin: 0;
 }
-p {
+#main p, .board-item p {
   position: relative;
   top: 50%;
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-}
-a p {
-  color: #FFF;
+  font-size: 24px;
 }
 #main ul {
   list-style-type: none;
   position: absolute;
   bottom: 0;
   width: 100%;
+  font-size: 24px;
 }
-#panels {
+#board {
   padding-left: 0px;
   padding-right: 0px;
-
+  height: 100%
 }
-#panels div {
+.board-item {
   height: 100%;
+  margin-bottom: 0;
+  color: #FFF;
 }
 #main {
   background-color: #95a5a6;
@@ -55,6 +56,16 @@ a p {
   animation-name: slidein;
   animation-duration: 2.75s;
 }
+#content {
+  overflow: auto;
+  height: 100%;
+}
+#full {
+  height: 100%;
+}
+#mypic {
+  box-shadow: 8px 5px 5px gray;
+}
 @keyframes slidein {
   from {
     width: 0;
@@ -68,4 +79,14 @@ a p {
 .no-gutter > [class*='col-'] {
   padding-right: 0;
   padding-left: 0;
+}
+.img-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-fluid {
+  height: 100%;
+}
+.story-pic {
+  margin-top: 20px;
 }
