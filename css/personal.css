@@ -23,7 +23,8 @@ ul {
 #board {
   padding-left: 0px;
   padding-right: 0px;
-  height: 100%
+  height: 100%;
+  background-color:#ecf0f1;
 }
 .board-item {
   height: 100%;
@@ -89,4 +90,19 @@ ul {
 }
 .story-pic {
   margin-top: 20px;
+}
+.port-tile {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
+}
+.port-tile img {
+  position: absolute;
+  width: 100%
+}
+.img-app {
+  border-radius: 35px;
+}
+.no-margin {
+  margin-bottom: 0px;
 }
