@@ -38,4 +38,28 @@ $(function(){
       }, 1000);
     }
   });
+
+  if (Modernizr.touch) {
+    $('.close-overlay').removeClass('gone');
+    $('.img').on('click', function(e) {
+      e.preventDefault();
+      if (!$(this).hasClass('hover')) {
+        $(this).addClass('hover');
+      }
+    });
+    $('.close-overlay').on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if($(this).closest('.img').hasClass('hover')) {
+        $(this).closest('.img').removeClass('hover');
+      }
+    });
+  } else {
+    $('.img').on('mouseenter', function() {
+      $(this).addClass('hover');
+    });
+    $('.img').on('mouseleave', function() {
+      $(this).removeClass('hover');
+    });
+  }
 });
