@@ -1,5 +1,6 @@
 body, html {
   height: 100%;
+  overflow-x: hidden;
 }
 ul {
   padding: 0;
@@ -11,14 +12,14 @@ ul {
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: 18px;
 }
 #main ul {
   list-style-type: none;
   position: absolute;
   bottom: 0;
   width: 100%;
-  font-size: 24px;
+  font-size: 20px;
 }
 #board {
   padding-left: 0px;
@@ -100,6 +101,9 @@ ul {
   position: absolute;
   width: 100%
 }
+.well {
+  padding: 3%;
+}
 .img-app {
   border-radius: 35px;
 }
@@ -141,7 +145,6 @@ a.close-overlay {
 a.close-overlay.gone {
   display: none;
 }
-
 a.expand {
   display: block;
   position: absolute;
@@ -151,7 +154,7 @@ a.expand {
   border: solid 5px #fff;
   text-align: center;
   color: #fff;
-  line-height: 50px;
+  line-height: 45px;
   font-weight: 700;
   font-size: 30px;
   -webkit-border-radius: 30px;
@@ -200,4 +203,27 @@ a.expand {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   border-radius: 30px;
+}
+
+@media (min-width: 992px) {
+  .modal, .modal-backdrop {
+    left: 37.5%;
+  }
+  .vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 991px) {
+  board, .board-item, #main {
+    height: 50%;
+  }
+  .well {
+    padding: 10%;
+  }
 }
