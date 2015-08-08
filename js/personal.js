@@ -46,28 +46,13 @@ $(function(){
     setTimeout(function() {
       $('#content').removeClass('hidden');
     }, 2000);
-    $('#content').load(url + ' #content > *').hide().fadeIn(5000);
+    $('#content')
+      .load(url + ' #content > *', function() { touchScreen(); })
+      .hide()
+      .fadeIn(5000);
   });
 
-  $(document).on({
-    mouseenter: function() {
-      $(this).addClass('hover');
-    },
-    mouseleave: function() {
-      $(this).removeClass('hover');
-    },
-    click: function(e) {
-        if (!$(this).hasClass('hover')) {
-          $(this).addClass('hover');
-          $(this).find('.expand').css({
-            bottom: 0
-          })
-        }
-      }
-    }
-  }, '.img');
-
-  $(document).load(function() {
+  function touchScreen() {
     if (Modernizr.touch) {
       $('.close-overlay').removeClass('gone');
       $('.expand').css({
@@ -79,56 +64,33 @@ $(function(){
         MozTransition: 'all 1.0s',
         Otransition: 'all 1.0s'
       });
+      $('.img').on('click', function(e) {
+        if (!$(this).hasClass('hover')) {
+          $(this).addClass('hover');
+          $(this).find('.expand').css({
+            bottom: 0
+          })
+        }
+      });
+      $('.close-overlay').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).siblings('.expand').css({
+          bottom: '200%'
+        });
+        if($(this).closest('.img').hasClass('hover')) {
+          $(this).closest('.img').removeClass('hover');
+        }
+      });
+    } else {
+      $('.img').on('mouseenter', function() {
+        $(this).addClass('hover');
+      });
+      $('.img').on('mouseleave', function() {
+        $(this).removeClass('hover');
+      });
     }
-  });
-
-  // $(document).on({
-  //   click: function(e) {
-  //     if (Modernizr.touch) {
-  //       $('.close-overlay').removeClass('gone');
-  //       if(!$(this).hasClass('hover')) {
-  //         $(this).addClass('hover');
-  //       }
-  //     }
-  //   }
-  // }, '.img');
-  //
-  // if (Modernizr.touch) {
-  //   $('.close-overlay').removeClass('gone');
-  //   $('.expand').css({
-  //     width: 60,
-  //     height: 60,
-  //     bottom: '200%',
-  //     transition: 'all 1.0s',
-  //     WebkitTransition: 'all 1.0s',
-  //     MozTransition: 'all 1.0s',
-  //     Otransition: 'all 1.0s'
-  //   });
-  //   $('.img').on('click', function(e) {
-  //     if (!$(this).hasClass('hover')) {
-  //       $(this).addClass('hover');
-  //       $(this).find('.expand').css({
-  //         bottom: 0
-  //       })
-  //     }
-  //   });
-  //   $('.close-overlay').on('click', function(e) {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     $(this).siblings('.expand').css({
-  //       bottom: '200%'
-  //     });
-  //     if($(this).closest('.img').hasClass('hover')) {
-  //       $(this).closest('.img').removeClass('hover');
-  //     }
-  //   });
-  // } else {
-  //   $('.img').on('mouseenter', function() {
-  //     $(this).addClass('hover');
-  //   });
-  //   $('.img').on('mouseleave', function() {
-  //     $(this).removeClass('hover');
-  //   });
-  // }
-
+  }
+  
+  touchScreen();
 });
