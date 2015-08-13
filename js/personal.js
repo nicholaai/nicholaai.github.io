@@ -1,60 +1,51 @@
 $(function(){
   var $boardItem = $('#board .board-item');
+  var $content = $('#content');
 
   $boardItem.on('click', function(e) {
     e.preventDefault();
     var $this = $(this);
     if ($boardItem.eq(0).is($this)) {
-      $boardItem.eq(1).animate( {left: "500%"}, {duration:2000, queue:false} ).delay(1000).fadeOut();
-      setTimeout(function() {
-        $boardItem.eq(2).animate( {left: "500%"}, {duration:2000, queue:false} ).delay(1000).fadeOut();
-      }, 500);
-      setTimeout(function() {
-        $boardItem.eq(3).animate( {left: "600%"}, {duration:2000, queue:false} ).delay(500).fadeOut();
-      }, 1000);
+      $boardItem.eq(1).animate({width:'toggle'},500);
+      $boardItem.eq(2).animate({width:'toggle'},500);
+      $boardItem.eq(3).animate({width:'toggle'},500);
     } else if ($boardItem.eq(1).is($this)) {
-      $boardItem.eq(0).delay(1000).fadeOut();
-      // $boardItem.eq(1).animate( {right: "25%"}, {duration:750, queue:false} );
-      setTimeout(function() {
-        $boardItem.eq(2).animate( {left: "500%"}, {duration:2000, queue:false} ).delay(1000).fadeOut();
-      }, 500);
-      setTimeout(function() {
-        $boardItem.eq(3).animate( {left: "600%"}, {duration:2000, queue:false} ).delay(500).fadeOut();
-      }, 1000);
+      $boardItem.eq(0).animate({width:'toggle'},300);
+      $boardItem.eq(2).animate({width:'toggle'},600);
+      $boardItem.eq(3).animate({width:'toggle'},700);
     } else if ($boardItem.eq(2).is($this)) {
-      $boardItem.eq(2).animate( {right: "50%"}, {duration:1510, queue:false} );
-      setTimeout(function() {
-        $boardItem.eq(1).animate( {right: "25%"}, {duration:1000, queue:false} );
-      }, 500);
-      setTimeout(function() {
-        $boardItem.eq(3).animate( {left: "600%"}, {duration:2000, queue:false} ).delay(500).fadeOut();
-      }, 1000);
+      $boardItem.eq(0).animate({width:'toggle'},500);
+      $boardItem.eq(1).animate({width:'toggle'},500);
+      $boardItem.eq(3).animate({width:'toggle'},500);
     } else if ($boardItem.eq(3).is($this)) {
-      $boardItem.eq(3).animate( {right: "75%"}, {duration:2000, queue:false} );
-      setTimeout(function() {
-        $boardItem.eq(2).animate( {right: "50%"}, {duration:1500, queue:false} );
-      }, 500);
-      setTimeout(function() {
-        $boardItem.eq(1).animate( {right: "25%"}, {duration:1000, queue:false} );
-      }, 1000);
+      $boardItem.eq(0).animate({width:'toggle'},700);
+      $boardItem.eq(1).animate({width:'toggle'},800);
+      $boardItem.eq(2).animate({width:'toggle'},900);
     }
   });
 
   $('#board a.direct').on('click', function(e) {
     e.preventDefault();
     var url = this.href;
-    setTimeout(function() {
-      $('#content').removeClass('hidden');
-    }, 2000);
-    $('#content')
-      .load(url + ' #content > *', function() { touchScreen(); })
-      .hide()
-      .fadeIn(5000);
+    if ( $content.hasClass('hidden')) {
+      setTimeout(function() {
+        $content.removeClass('hidden');
+      }, 2000);
+      $('#content')
+        .load(url + ' #content > *', function() { touchScreen(); })
+        .hide()
+        .fadeIn(4000);
+    } else {
+      $content
+        .empty()
+        .addClass('hidden');
+    }
   });
 
   function touchScreen() {
     if (Modernizr.touch) {
       $('.close-overlay').removeClass('gone');
+      $('.description').css('fontSize', '2em');
       $('.expand').css({
         width: 60,
         height: 60,
@@ -91,6 +82,6 @@ $(function(){
       });
     }
   }
-  
+
   touchScreen();
 });

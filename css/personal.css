@@ -74,7 +74,7 @@ ul {
     opacity: 0;
   }
   to {
-    width: 25%;
+    width: 20%;
     opacity: 1;
   }
 }
@@ -125,6 +125,49 @@ ul {
 }
 .close-page:active {
   text-decoration: none;
+}
+div.row .effect-1 {
+  margin-left: 0;
+  margin-right: 0;
+}
+/* 5 Column Layout */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+.col-md-6.5 {
+  width: 60%;
 }
 /* ============================================================
   PORTFOLIO OVERLAY
