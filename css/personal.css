@@ -170,6 +170,17 @@ div.row .effect-1 {
 .col-md-6.5 {
   width: 60%;
 }
+.modal {
+  text-align: left;
+}
+.modal-header {
+  border-bottom: none;
+}
+.carousel-control.left, .carousel-control.right {
+  background: none !important;
+  filter: progid:none !important;
+}
+
 /* ============================================================
   PORTFOLIO OVERLAY
 ============================================================ */
@@ -283,7 +294,7 @@ a.description:hover {
 
 @media (min-width: 992px) {
   .modal, .modal-backdrop {
-    left: 37.5%;
+    left: 40%;
   }
   .vertical-center {
     position: relative;
