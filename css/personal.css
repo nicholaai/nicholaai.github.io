@@ -1,3 +1,6 @@
+* {
+  font-family: 'Century Gothic', 'Didact Gothic', sans-serif;;
+}
 body, html {
   height: 100%;
   overflow-x: hidden;
@@ -179,6 +182,9 @@ div.row .effect-1 {
 .carousel-control.left, .carousel-control.right {
   background: none !important;
   filter: progid:none !important;
+}
+.carousel-control, .carousel-control:focus, .carousel-control:hover {
+  color: #000;
 }
 
 /* ============================================================
