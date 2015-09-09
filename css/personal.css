@@ -1,12 +1,10 @@
 * {
   font-family: 'Century Gothic', 'Didact Gothic', sans-serif;;
 }
-body, html {
+html, body {
   height: 100%;
   overflow-x: hidden;
   background-color:#ecf0f1;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 ul {
   padding: 0;
@@ -313,31 +311,30 @@ a.description:hover {
     font-size: 18px;
   }
 }
-
 @media (max-width: 991px) {
-  board, .board-item, #main {
-    height: 50%;
-  }
   .well {
     padding: 10%;
   }
+  #main p, .board-item p {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 13px;
+  }
+  #main p {
+    font-size: 11px;
+  }
+  .fa-2x {
+    font-size: 1.5em;
+  }
 }
-
 @media only screen
 and (min-device-width : 320px)
-and (max-device-width : 667px) {
-  .contact-list {
-    display: inline-flex;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -moz-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-align-self: auto;
-    right: 0;
-    left: 25%;
-  }
-  .contact-list li {
-    padding: 0 5px;
+and (max-device-width : 1024px) {
+  html, body {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 }
