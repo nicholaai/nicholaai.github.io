@@ -60,7 +60,7 @@ $(function(){
           $(this).addClass('hover');
           $(this).find('.expand').css({
             bottom: 0
-          })
+          });
         }
       });
       $('.close-overlay').on('click', function(e) {
