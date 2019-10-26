@@ -1,1 +1,2 @@
 # nicholaai.github.io
+nice.
